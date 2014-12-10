@@ -28,7 +28,6 @@ P.S.: There is also an Objective-C version of this embedded in OpenGroupware.org
 
 Sample Main.xtmpl - renders just the root HTML tag and then triggers the head and body templates:
 ```
-<?xml version="1.0" encoding="iso-8859-1"?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <SKYOBJ insertvalue="template" name="head" />
   <SKYOBJ insertvalue="template" name="body" />
@@ -37,7 +36,6 @@ Sample Main.xtmpl - renders just the root HTML tag and then triggers the head an
 
 Sample body.xtmpl - this adds the body tag, triggers a header and footer template and in between inserts the content template:
 ```
-<?xml version="1.0" encoding="iso-8859-1"?>
 <body xmlns="http://www.w3.org/1999/xhtml"
       onload="setFocus()"
 >
@@ -49,7 +47,6 @@ Sample body.xtmpl - this adds the body tag, triggers a header and footer templat
 
 Sample body.xtmpl - this now embeds the actual HTML fragment:
 ```
-<?xml version="1.0" encoding="iso-8859-1"?>
 <span xmlns="http://www.w3.org/1999/xhtml">
   <SKYOBJ insertvalue="var" name="body" />
 </span>

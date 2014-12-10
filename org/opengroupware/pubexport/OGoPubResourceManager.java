@@ -119,7 +119,7 @@ public class OGoPubResourceManager extends GoContainerResourceManager {
     (String _name, IGoContext _ctx)
   {
     // isn't that ALWAYS the clientObject in _ctx?
-    // hm, currently its the folder, not the client object
+    // hm, currently it is the folder, not the client object
     // for caching purposes, since the lookup is likely the same. but then
     // the OFS already caches keys
     IGoObject rdoc = (IGoObject) this.container;

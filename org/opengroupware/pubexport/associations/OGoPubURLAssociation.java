@@ -202,7 +202,7 @@ public class OGoPubURLAssociation extends WOAssociation {
     
     if (linkDoc instanceof OGoPubDirectory) {
       /* Note: this is not strictly necessary, a _webserver_ would evaluate
-       *       it on its own. However, for sites dumped to the filesystem its
+       *       it on its own. However, for sites dumped to the filesystem it is
        *       a requirement (otherwise the filesystem browser will open the
        *       plain directory listing).
        */

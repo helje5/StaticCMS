@@ -317,7 +317,7 @@ public class OGoPubHTMLParser extends WOHTMLParser {
     if (isDebugOn) log.debug("  parse attributes at " + this.idx);
     Map<String,String> attrs = this._parseTagAttributes();
     if (this.lastException != null && attrs == null)
-      return null; // invalid tag attrs, Note: its valid to have no attrs ...
+      return null; // invalid tag attrs, Note: it is valid to have no attrs ...
     
     if (this.idx >= this.len) {
       this.addException("unexpected EOF: missing '>' in "+ name +" tag (EOF).");

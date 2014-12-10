@@ -299,7 +299,7 @@ public class OGoPubWebSite extends OGoPubDirectory {
     if (path == null || path.length == 0)
       return null;
     
-    /* Note: we don't use File.pathSeparator, because its ':' on MacOS */
+    /* Note: we don't use File.pathSeparator, because it is ':' on MacOS */
     return UString.componentsJoinedByString(path, "/");
   }
   public static String absolutePathInTargetHierarchy(Object _o) {

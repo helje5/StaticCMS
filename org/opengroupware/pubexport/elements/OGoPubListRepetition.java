@@ -236,7 +236,7 @@ public class OGoPubListRepetition extends WODynamicElement {
       if (isDebugOn) log.debug("    render: " + subdoc);
       
       /*
-       * Note: you can also use lists to iterate over images or so, its not
+       * Note: you can also use lists to iterate over images or so, it is not
        *       restricted to components ...
        * TODO: We use WOComponents to represent the (evaluation) context,
        *       possibly the cursor would be the better option.

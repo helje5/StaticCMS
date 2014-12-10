@@ -23,3 +23,42 @@ Now the fun part is that you can override templates in subdirectories. Lets say 
 Another core idea - which isn't actually implemented :-) - is that the templates could export arbitrary OFS objects. That is, instead of the content document being an HTML file, it could also be just a property list or an XML file with the raw data.
 
 P.S.: There is also an Objective-C version of this embedded in OpenGroupware.org (called SkyPublisher). This one is a modern Go based Java rewrite.
+
+### Demo
+
+Sample Main.xtmpl - renders just the root HTML tag and then triggers the head and body templates:
+```
+<?xml version="1.0" encoding="iso-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:var="http://www.skyrix.com/od/binding"
+      xmlns:js="http://www.skyrix.com/od/javascript"
+>
+  <SKYOBJ insertvalue="template" name="head" />
+  <SKYOBJ insertvalue="template" name="body" />
+</html>
+```
+
+Sample body.xtmpl - this adds the body tag, triggers a header and footer template and in between inserts the content template:
+```
+<?xml version="1.0" encoding="iso-8859-1"?>
+<body xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:var="http://www.skyrix.com/od/binding"
+      xmlns:js="http://www.skyrix.com/od/javascript"
+      onload="setFocus()"
+>
+  <nodig><SKYOBJ insertvalue="template" name="header" /></nodig>
+  <SKYOBJ insertvalue="template" name="content" />
+  <nodig><SKYOBJ insertvalue="template" name="footer" /></nodig>
+</body>
+```
+
+Sample body.xtmpl - this now embeds the actual HTML fragment:
+```
+<?xml version="1.0" encoding="iso-8859-1"?>
+<span xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:var="http://www.skyrix.com/od/binding"
+      xmlns:js="http://www.skyrix.com/od/javascript"
+>
+  <SKYOBJ insertvalue="var" name="body" />
+</span>
+```

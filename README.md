@@ -22,7 +22,7 @@ Now the fun part is that you can override templates in subdirectories. Lets say 
 
 Another core idea - which isn't actually implemented :-) - is that the templates could export arbitrary OFS objects. That is, instead of the content document being an HTML file, it could also be just a property list or an XML file with the raw data.
 
-P.S.: There is also an Objective-C version of this embedded in OpenGroupware.org (called SkyPublisher). This one is a modern Go based Java rewrite.
+P.S.: There is also an Objective-C version of this embedded in OpenGroupware.org (called SkyPublisher). This one is a modern (ROTFL) Go based Java rewrite.
 
 ### Demo
 

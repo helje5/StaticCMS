@@ -1,0 +1,78 @@
+{
+  publicResources = (
+  );
+  
+  factories = {
+  };
+  
+  categories = {
+  
+    org.opengroupware.pubexport.documents.OGoPubDirectory = {
+      slots = {
+				"-manage_addChildren" = {
+          protectedBy = "View Management Screens";
+	  			value = (
+				  { label  = "Folder";
+				    action = "-manage_addProduct/jmi/folderAdd"; },
+				  { label  = "Publisher Template";
+				    action = "-manage_addProduct/jmi/templateAdd"; },
+				  { label  = "Publisher HTML Page";
+				    action = "-manage_addProduct/jmi/pageAdd"; },
+				  { label  = "Image";
+				    action = "-manage_addProduct/jmi/imageAdd"; },
+				  { label  = "Generic File";
+				    action = "-manage_addProduct/jmi/fileAdd"; }
+				  );
+				};
+		  };
+    };
+    
+    /*
+    org.opengroupware.jope.ofs.OFSSelect = {
+      slots = {
+				"-manage_options" = {
+          protectedBy = "View Management Screens";
+	  			value = (
+	    			{ label = "Default";    action = "-manage_workspace";  },
+	    			{ label = "Select";     action = "-manage_select";     },
+	    			{ label = "Properties"; action = "-manage_properties"; },
+	    			{ label = "View";       action = "-SELF"; }
+	  			);
+				};
+		  };
+		  
+      methods = {
+        "-manage_workspace" = {
+          protectedBy = "View Management Screens";
+          pageName    = "JMIManageFolder";
+        };
+        "-manage_select" = {
+          protectedBy = "View Management Screens";
+          pageName    = "JMIManageSelect";
+        };
+      };
+    };
+    */
+    
+    org.opengroupware.pubexport.documents.OGoPubImageDocument = {
+      methods = {
+        "-manage_workspace" = {
+          protectedBy = "View Management Screens";
+          pageName    = "JMIManageImage";
+        };
+      };
+    };
+    
+    org.opengroupware.pubexport.documents.OGoPubTemplate = {
+      slots = {
+				"-manage_options" = {
+          protectedBy = "View Management Screens";
+	  			value = (
+	    			{ label = "Default";    action = "-manage_workspace";  },
+	    			{ label = "Properties"; action = "-manage_properties"; }
+	  			);
+				};
+      };
+    };
+  };
+}

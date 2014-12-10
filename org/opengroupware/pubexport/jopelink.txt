@@ -1,0 +1,8 @@
+org.getobjects.woextensions
+org.getobjects.weextensions
+org.getobjects.weprototype
+#org.getobjects.ext.dtree
+org.getobjects.jmi
+org.opengroupware.pubexport.documents
+org.opengroupware.pubexport.jmipub
+#org.opengroupware.pubexport.tinymce

@@ -1,0 +1,52 @@
+{
+  renderers = {
+    org.opengroupware.pubexport.OGoPubRenderer = {
+      priority = high;
+    };
+  };
+
+  factories = {
+  };
+  
+  classes = {
+    org.opengroupware.pubexport.documents.OGoPubDocument = {
+      protectedBy   = "<public>";
+      defaultAccess = "allow";
+    };
+
+    org.opengroupware.pubexport.documents.OGoPubDirectory = {
+      protectedBy   = "<public>";
+      defaultAccess = "allow";
+      
+      defaultRoles = {
+        "WebDAV Access"                   = "Authenticated";
+        "Change Images and Files"         = "Owner";
+        "Delete Objects"                  = "Owner";
+        "View"                            = "Owner";
+        "Add Documents, Images and Files" = "Owner";
+      	"Add Folders"                     = "Owner";
+      };
+    };
+
+    org.opengroupware.pubexport.documents.OGoPubHTMLDocument = {
+      extensions    = ( html );
+    };
+    
+    org.opengroupware.pubexport.documents.OGoPubXHTMLDocument = {
+      extensions    = ( xhtml );
+    };
+
+    org.opengroupware.pubexport.documents.OGoPubImageDocument = {
+      extensions  = ( gif, jpg, jpeg, png, ico );
+    };
+
+    org.opengroupware.pubexport.documents.OGoPubPlainTextDocument = {
+    };
+
+    org.opengroupware.pubexport.documents.OGoPubTemplate = {
+      protectedBy   = "<public>";
+      defaultAccess = "allow";
+      extensions    = ( xtmpl );
+    };
+  };
+}

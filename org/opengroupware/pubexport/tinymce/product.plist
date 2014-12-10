@@ -1,0 +1,19 @@
+{
+  publicResources = (
+  );
+  
+  factories = {
+  };
+  
+  categories = {
+  
+    org.opengroupware.pubexport.documents.OGoPubHTMLDocument = {
+      methods = {
+        "-manage_tinymce" = {
+          protectedBy = "View Management Screens";
+          pageName    = "tinymce.JMIManageTinyMCE";
+        };
+      };
+    };
+  };
+}

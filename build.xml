@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="pubexport" default="apps" basedir=".">
+
+	<!-- give user a chance to override any of the following settings
+         NOTE: any properties defined in one of these files will prevent
+               the defaults provided below from being set - this means
+               they will be effectively overriden!
+    -->
+	<property file=".ant.properties"/>
+	<property file="${user.home}/.ant.properties"/>
+
+	<!-- DEFAULTS -->
+	<property name="src"             location="." />
+	<property name="bin"             value="ant-obj" />
+	<property name="libs.thirdparty" value="ThirdParty" />
+	<property name="libs.go"       value="../GETobjects/${bin}/lib" />
+	<property name="libs.goxt"     value="../GETobjects/${bin}/lib" />
+	<property name="libs.extra"      value="../GETobjects/ThirdParty" />
+
+	<!-- include the version file NOW -->
+        <property file="version.properties" />
+        <property file="org/opengroupware/pubexport/version.properties" />
+
+	<!-- product jars -->
+	<property name="jardir"    value="${bin}/lib" />
+
+	<property name="jar.pubexport"
+            value="${jardir}/pubexport-${version.major}.${version.minor}.${version.subminor}.jar" />
+
+	<!-- global compile options -->
+	<property name="compile.debug"   value="off" />
+	<property name="compile.verbose" value="false" />
+	<property name="compile.source"  value="1.4" />
+	<property name="compile.target"  value="1.2" />
+
+	<!-- global copy options -->
+	<property name="copy.verbose"    value="false" />
+
+
+	<!-- All parts -->
+
+	<!-- Apps -->
+	<patternset id="app.pubexport">
+          <include name="org/opengroupware/pubexport/associations/*.java" />
+          <include name="org/opengroupware/pubexport/documents/*.java" />
+          <include name="org/opengroupware/pubexport/elements/*.java" />
+          <include name="org/opengroupware/pubexport/js/*.java" />
+          <include name="org/opengroupware/pubexport/parsers/*.java" />
+          <include name="org/opengroupware/pubexport/jmipub/*.java" />
+          <include name="org/opengroupware/pubexport/*.java" />
+	</patternset>
+
+	<!-- resources -->
+	<patternset id="res.global">
+          <include name="org/opengroupware/pubexport/jopelink.txt" />
+          <include name="org/opengroupware/pubexport/documents/product.plist" />
+          <include name="org/opengroupware/pubexport/jmipub/product.plist" />
+
+    <!-- don't copy from products or the www directory -->
+	  <exclude name="${bin}/**" />
+	  <exclude name="www/**" />
+	  <exclude name="docs/**" />
+
+	  <!-- eclipse product directory -->
+	  <exclude name="bin/**" />
+
+	  <!-- special files we don't want to put in the package -->
+	  <exclude name="log4j.properties" />
+	  <exclude name="version.properties" />
+	</patternset>
+
+	<!-- Setup classpath necessary for building -->
+	<path id="build.classpath">
+	  <pathelement path="${classpath}" />
+
+	  <!-- third party libs ... required for building und running -->
+	  <fileset dir="${libs.thirdparty}">
+	    <include name="*.jar" />
+	  </fileset>
+          
+	  <fileset dir="${libs.go}">
+	    <include name="*.jar" />
+	  </fileset>
+          
+	  <fileset dir="${libs.goxt}">
+	    <include name="*.jar" />
+	  </fileset>
+          
+	  <fileset dir="${libs.extra}">
+	    <include name="*.jar" />
+	  </fileset>
+	</path>
+
+	<target name="apps"
+          depends="clean.all, makejar.pubexport" />
+
+	<!-- clean product directories -->
+	<target name="clean.all">
+	  <delete dir="${bin}"        />
+	  <delete dir="${jardir}"     />
+	  <mkdir  dir="${bin}"        />
+	  <mkdir  dir="${jardir}"        />
+	</target>
+
+	<!-- no need to clean up before! -->
+	<target name="app.pubexport">
+	  <!-- compile it -->
+	  <javac srcdir="${src}"
+		 destdir="${bin}"
+		 debug="${compile.debug}"
+	         listfiles="${compile.verbose}"
+		>
+	    <classpath  refid="build.classpath" />
+	    <patternset refid="app.pubexport" />
+	  </javac>
+
+	  <!-- copy resources -->
+	  <copy todir="${bin}" verbose="${copy.verbose}">
+	    <fileset dir="${src}">
+	      <patternset refid="res.global" />
+	    </fileset>
+	  </copy>
+          <copy todir="${bin}" verbose="${copy.verbose}">
+            <fileset dir="${src}">
+              <filename name="log4j.properties" />
+            </fileset>
+          </copy>
+	</target>
+
+	<!-- application jars -->
+
+	<target name="makejar.pubexport" depends="app.pubexport">
+	  <jar destfile="${jar.pubexport}" basedir="${bin}"
+               index="true" compress="true">
+            <zipfileset src="${libs.go}/getobjects-1.5.4.jar" />
+            <zipfileset src="${libs.go}/jettyrunner-1.5.4.jar" />
+            <zipfileset src="${libs.extra}/js-1.7r1.jar" />
+      	
+            <zipfileset src="${libs.extra}/commons-codec-1.3.jar" />
+            <zipfileset src="${libs.extra}/commons-io-1.3.2.jar" />
+            <zipfileset src="${libs.extra}/commons-logging-1.1.jar" />
+            <zipfileset src="${libs.extra}/commons-fileupload-1.2.jar" />
+            <zipfileset src="${libs.extra}/log4j-1.2.15.jar" />
+            <zipfileset src="${libs.extra}/ognl-2.6.9.jar" />
+            <zipfileset src="${libs.extra}/jetty-6.1.7.jar" />
+            <zipfileset src="${libs.extra}/jetty-util-6.1.7.jar" />
+            <zipfileset src="${libs.extra}/javax.servlet.jar" />
+
+	    <manifest>
+	      <attribute name="Main-Class"
+                         value="org.opengroupware.pubexport.pubexport"/>
+              
+	      <section name="org/opengroupware/pubexport">
+		<attribute name="Specification-Title"   value="PubExport" />
+		<attribute name="Specification-Version"
+                     value="${version.major}.${version.minor}" />
+		<attribute name="Specification-Vendor"
+                     value="Helge Hess" />
+                
+		<attribute name="Implementation-Title"
+                     value="org.opengroupware.pubexport.pubexport" />
+		<attribute name="Implementation-Version"
+                     value="${version.major}.${version.minor}.${version.subminor}" />
+		<attribute name="Implementation-Vendor"
+                     value="Helge Hess" />
+	      </section>
+	    </manifest>
+	  </jar>
+	</target>
+
+</project>

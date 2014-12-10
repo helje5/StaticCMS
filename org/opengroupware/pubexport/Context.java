@@ -1,0 +1,13 @@
+package org.opengroupware.pubexport;
+
+import org.getobjects.appserver.core.WOApplication;
+import org.getobjects.appserver.core.WOContext;
+import org.getobjects.appserver.core.WORequest;
+
+public class Context extends WOContext {
+
+  public Context(WOApplication _app, WORequest _rq) {
+    super(_app, _rq);
+  }
+
+}

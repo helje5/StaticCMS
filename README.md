@@ -29,10 +29,7 @@ P.S.: There is also an Objective-C version of this embedded in OpenGroupware.org
 Sample Main.xtmpl - renders just the root HTML tag and then triggers the head and body templates:
 ```
 <?xml version="1.0" encoding="iso-8859-1"?>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:var="http://www.skyrix.com/od/binding"
-      xmlns:js="http://www.skyrix.com/od/javascript"
->
+<html xmlns="http://www.w3.org/1999/xhtml">
   <SKYOBJ insertvalue="template" name="head" />
   <SKYOBJ insertvalue="template" name="body" />
 </html>
@@ -42,8 +39,6 @@ Sample body.xtmpl - this adds the body tag, triggers a header and footer templat
 ```
 <?xml version="1.0" encoding="iso-8859-1"?>
 <body xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:var="http://www.skyrix.com/od/binding"
-      xmlns:js="http://www.skyrix.com/od/javascript"
       onload="setFocus()"
 >
   <nodig><SKYOBJ insertvalue="template" name="header" /></nodig>
@@ -55,10 +50,34 @@ Sample body.xtmpl - this adds the body tag, triggers a header and footer templat
 Sample body.xtmpl - this now embeds the actual HTML fragment:
 ```
 <?xml version="1.0" encoding="iso-8859-1"?>
-<span xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:var="http://www.skyrix.com/od/binding"
-      xmlns:js="http://www.skyrix.com/od/javascript"
->
+<span xmlns="http://www.w3.org/1999/xhtml">
   <SKYOBJ insertvalue="var" name="body" />
 </span>
+```
+
+
+#### Notes
+
+- the clientObject of the context is the page being exported in the context
+  - the path of that page is what URLs must be rewritten for, NOT the
+    document of the OGoPubComponent
+
+#### Starting the exporter or preview daemon
+
+```
+java -cp ~/dev/eclipse/JavaPlayground/ant-obj/lib/pubexport-0.9.4.jar \
+  org.opengroupware.pubexport.pubd \
+  -Droot=/Users/helge/dev/www/hh-dump-20050406
+```
+```
+java -cp ~/dev/eclipse/JavaPlayground/ant-obj/lib/pubexport-0.9.4.jar \
+  org.opengroupware.pubexport.pubexport \
+  /Users/helge/dev/www/home-trunk \
+  /tmp/ogopub
+```
+```
+java -cp pubexport-0.9.4.jar \
+  org.opengroupware.pubexport.pubd \
+  -Droot=/Users/helge/dev/www/home-trunk/ \
+  -DWOPort=8988
 ```

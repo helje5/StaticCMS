@@ -18,7 +18,7 @@ import org.getobjects.foundation.NSJavaRuntime;
 import org.getobjects.ofs.fs.OFSHostFileManager;
 import org.opengroupware.pubexport.OGoPubComponentDefinition;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 public abstract class OGoPubComponentDocument extends OGoPubDocument
   implements IGoComponentDefinition
 {

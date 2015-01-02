@@ -8,7 +8,7 @@ import org.getobjects.ofs.OFSSelect;
 import org.getobjects.ofs.fs.IOFSFileInfo;
 import org.getobjects.ofs.fs.IOFSFileManager;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 public class OGoPubFactory extends OFSRestorationFactory {
   protected static final Log log = LogFactory.getLog("OGoPubExport");  
 

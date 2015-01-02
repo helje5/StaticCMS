@@ -180,7 +180,7 @@ public class OGoPubResourceManager extends GoContainerResourceManager {
   }
 
   
-  @SuppressWarnings("unchecked")
+  @SuppressWarnings("rawtypes")
   @Override
   public Class lookupComponentClass(String _name) {
     /* Note: this is only called for components */

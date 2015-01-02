@@ -87,7 +87,7 @@ import org.xml.sax.SAXException;
  *   &lt;SKYOBJ&gt;
  * </pre>
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 public class OGoPubXHTMLParser extends NSObject implements WOTemplateParser {
   static DocumentBuilderFactory dbf;
   static DocumentBuilderFactory dbfNoNS;
@@ -269,6 +269,7 @@ public class OGoPubXHTMLParser extends NSObject implements WOTemplateParser {
    * @param _node
    * @return
    */
+  @SuppressWarnings("unchecked")
   public WOElement buildElement(final Element _node) {
     if (_node == null)
       return null;

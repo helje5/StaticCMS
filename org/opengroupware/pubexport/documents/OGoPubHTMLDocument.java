@@ -4,7 +4,7 @@ import org.getobjects.appserver.core.WOResourceManager;
 import org.opengroupware.pubexport.OGoPubPageComponent;
 import org.opengroupware.pubexport.parsers.OGoPubHTMLParser;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 public class OGoPubHTMLDocument extends OGoPubComponentDocument {
 
   /* keys */

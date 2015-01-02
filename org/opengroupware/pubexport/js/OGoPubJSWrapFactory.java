@@ -16,7 +16,7 @@ public class OGoPubJSWrapFactory extends WrapFactory {
   /* wrapping */
 
   @Override
-  @SuppressWarnings("unchecked")
+  @SuppressWarnings("rawtypes")
   public Scriptable wrapAsJavaObject
     (Context _ctx, Scriptable _scope, Object _javaObject, Class _staticType)
   {

@@ -9,7 +9,7 @@ import org.opengroupware.pubexport.OGoPubRenderer;
 import org.opengroupware.pubexport.OGoPubTemplateComponent;
 import org.opengroupware.pubexport.parsers.OGoPubXTemplateParser;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 public class OGoPubTemplate extends OGoPubComponentDocument
   implements IGoObjectRenderer
 {

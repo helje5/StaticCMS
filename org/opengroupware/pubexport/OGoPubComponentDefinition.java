@@ -15,7 +15,7 @@ public class OGoPubComponentDefinition extends WOComponentDefinition {
     
   final OGoPubComponentDocument document;
 
-  @SuppressWarnings("unchecked")
+  @SuppressWarnings("rawtypes")
   public OGoPubComponentDefinition(OGoPubComponentDocument _doc, Class _cls) {
     super(_doc.nameInContainer(), _cls);
     this.document = _doc;

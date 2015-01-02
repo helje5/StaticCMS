@@ -5,7 +5,7 @@ import org.opengroupware.pubexport.parsers.OGoPubXHTMLParser;
 /**
  * OGoPubXHTMLDocument
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 public class OGoPubXHTMLDocument extends OGoPubHTMLDocument {
 
   @Override

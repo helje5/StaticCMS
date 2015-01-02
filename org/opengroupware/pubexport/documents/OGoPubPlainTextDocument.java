@@ -13,7 +13,7 @@ import org.opengroupware.pubexport.OGoPubPageComponent;
  * <p>
  * @author helge
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 public class OGoPubPlainTextDocument extends OGoPubComponentDocument {
 
   /* keys */

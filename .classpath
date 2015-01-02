@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GETobjects"/>
+	<classpathentry kind="lib" path="/GETobjects/ThirdParty/js-1.7r1.jar" sourcepath="/Users/helge/projects/rhino1_7R1/src"/>
+	<classpathentry kind="lib" path="/GETobjects/ThirdParty/jetty-6.1.14.jar"/>
+	<classpathentry kind="lib" path="/GETobjects/ThirdParty/jetty-util-6.1.14.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

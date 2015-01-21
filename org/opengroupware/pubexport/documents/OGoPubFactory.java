@@ -59,11 +59,16 @@ public class OGoPubFactory extends OFSRestorationFactory {
         if (_ext.equals("txt")) return OGoPubPlainTextDocument.class;
         
         if (_ext.equals("sfm")) return OGoPubPlainTextDocument.class;
+        
+        if (_ext.equals("eot")) return OGoPubDocument.class;
+        if (_ext.equals("ttf")) return OGoPubDocument.class;
+        if (_ext.equals("svg")) return OGoPubDocument.class;
         break;
         
       case 4:
         if (_ext.equals("html")) return OGoPubHTMLDocument.class;
         if (_ext.equals("jpeg")) return OGoPubImageDocument.class;
+        if (_ext.equals("woff")) return OGoPubDocument.class;
         
         break;
         

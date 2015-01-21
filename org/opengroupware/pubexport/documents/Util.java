@@ -18,26 +18,33 @@ public class Util {
   /* MIME types */
   
   public static String[] extToMIME = {
-    "html",       "text/html",
-    "xhtml",      "application/xhtml+xml",
+    "html",         "text/html",
+    "xhtml",        "application/xhtml+xml",
     
-    "txt",        "text/plain",
-    "css",        "text/css",
-    "js",         "text/javascript",
-    "make",       "text/x-makefile",
-    "pl",         "text/x-perl",
+    "txt",          "text/plain",
+    "css",          "text/css",
+    "js",           "text/javascript",
+    "make",         "text/x-makefile",
+    "pl",           "text/x-perl",
     
-    "gif",        "image/gif",
-    "ico",        "image/x-icon",
-    "jpg",        "image/jpeg",
-    "png",        "image/png",
+    "gif",          "image/gif",
+    "ico",          "image/x-icon",
+    "jpg",          "image/jpeg",
+    "png",          "image/png",
     
-    "pdf",        "application/pdf",
-    "sh",         "application/x-sh",
-    "sed",        "application/x-sed",
-    "gz",         "application/x-gzip",
-    "zip",        "application/zip",
-    "xul",        "application/vnd.mozilla.xul+xml",
+    "svg",          "image/svg+xml",
+    
+    "eot",          "application/vnd.ms-fontobject",
+    "otf",          "application/x-font-opentype",
+    "ttf",          "application/x-font-ttf",
+    "woff",         "application/font-woff", /* Web Open Font Format */
+    
+    "pdf",          "application/pdf",
+    "sh",           "application/x-sh",
+    "sed",          "application/x-sed",
+    "gz",           "application/x-gzip",
+    "zip",          "application/zip",
+    "xul",          "application/vnd.mozilla.xul+xml",
     
     "xtmpl",        "skyrix/xtmpl",
     "sfm",          "skyrix/form",

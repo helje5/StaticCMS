@@ -32,7 +32,7 @@ Defaults
   LogTemplates - bool
   
   SkyPubDebugEnabled    - bool - enable debug logs
-  SkyPubCoreOnException - bool - dump core if SkyPubComponent catched an 
+  SkyPubCoreOnException - bool - dump core if SkyPubComponent caught an 
 				 exception
 
 Special XML Tags
